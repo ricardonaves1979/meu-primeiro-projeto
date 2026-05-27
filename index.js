@@ -6,22 +6,33 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY
 )
 
-async function testarConexao() {
-  console.log('🔌 Conectando ao Supabase...')
-  
-  const { data, error } = await supabase
-    .from('teste')
-    .select('*')
-    .limit(1)
+async function main() {
+  console.log('🚀 Testando Supabase...\n')
 
-  if (error && error.code === '42P01') {
-    console.log('✅ Conexão com Supabase funcionando!')
-    console.log('📋 Banco de dados pronto para uso.')
-  } else if (error) {
-    console.log('✅ Supabase conectado! Detalhes:', error.message)
+  // 1. Inserir contato
+  console.log('1️⃣  Inserindo seu contato...')
+  const { data: inserido, error: erroInsert } = await supabase
+    .from('contatos')
+    .insert({ nome: 'Ricardo Naves', email: 'ricardonaves@gmail.com' })
+    .select()
+
+  if (erroInsert) {
+    console.log('❌ Erro ao inserir:', erroInsert.message)
   } else {
-    console.log('✅ Supabase conectado com sucesso!')
+    console.log('✅ Contato inserido com sucesso!', inserido)
+  }
+
+  // 2. Buscar todos os contatos
+  console.log('\n2️⃣  Buscando contatos...')
+  const { data: contatos, error: erroBusca } = await supabase
+    .from('contatos')
+    .select('*')
+
+  if (erroBusca) {
+    console.log('❌ Erro ao buscar:', erroBusca.message)
+  } else {
+    console.log('✅ Contatos no banco:', contatos)
   }
 }
 
-testarConexao()
+main()
