@@ -1,0 +1,7 @@
+# SEGURANÇA - nunca vai pro GitHub
+.env
+.env.local
+.env.production
+
+# Dependências
+node_modules/

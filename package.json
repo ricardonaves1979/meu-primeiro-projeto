@@ -1,0 +1,24 @@
+{
+  "name": "meu-primeiro-projeto",
+  "version": "1.0.0",
+  "description": "Bem-vindo! Este é meu primeiro repositório GitHub.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ricardonaves1979/meu-primeiro-projeto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ricardonaves1979/meu-primeiro-projeto/issues"
+  },
+  "homepage": "https://github.com/ricardonaves1979/meu-primeiro-projeto#readme",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.106.2",
+    "dotenv": "^17.4.2"
+  }
+}
