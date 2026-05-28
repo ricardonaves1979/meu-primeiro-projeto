@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesquisa do Treinamento de IA — Grupo SN</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <img src="img/logo-grupo-sn.png" alt="Grupo SN" />
+    <span class="header-titulo">Departamento Financeiro</span>
+  </header>
+
+  <div class="pagina">
+    <main class="container">
+      <div class="card">
+        <h1>Pesquisa do Treinamento de IA</h1>
+        <p class="lead">Sua opinião ajuda a tornar os próximos treinamentos ainda melhores.</p>
+
+        <p>Responda sobre o que você achou, o que aprendeu e onde você enxerga o uso da IA no seu trabalho. São <strong>16 perguntas rápidas</strong> — cerca de <strong>5 a 7 minutos</strong>.</p>
+
+        <form id="form-identificacao" style="margin-top: 28px;">
+          <div class="campo">
+            <label for="nome">Selecione seu nome <span class="obrigatorio">*</span></label>
+            <select id="nome" name="nome" required>
+              <option value="">— escolha seu nome —</option>
+              <option value="Renata">Renata</option>
+              <option value="Joyci">Joyci</option>
+              <option value="Poliana">Poliana</option>
+              <option value="Amanda">Amanda</option>
+              <option value="Ana Luisa">Ana Luisa</option>
+            </select>
+          </div>
+
+          <button type="submit" class="botao">Iniciar pesquisa &rarr;</button>
+        </form>
+      </div>
+
+      <p class="rodape">Grupo SN &mdash; Departamento Financeiro &mdash; Treinamento Interno</p>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById('form-identificacao').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      if (!nome) return;
+      sessionStorage.setItem('pesquisa_nome', nome);
+      window.location.href = 'pesquisa.html';
+    });
+  </script>
+</body>
+</html>

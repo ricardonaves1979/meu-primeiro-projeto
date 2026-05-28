@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pesquisa do Treinamento de IA — Grupo SN</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="header">
+    <img src="img/logo-grupo-sn.png" alt="Grupo SN" />
+    <span class="header-titulo">Departamento Financeiro</span>
+  </header>
+
+  <div class="pagina">
+    <main class="container">
+      <div class="card">
+        <h1>Pesquisa do Treinamento</h1>
+        <p class="lead" id="saudacao">Carregando...</p>
+
+        <!-- Barra de progresso -->
+        <div class="progresso">
+          <div class="progresso-passo feito" id="p1"></div>
+          <div class="progresso-passo" id="p2"></div>
+          <div class="progresso-passo" id="p3"></div>
+          <div class="progresso-passo" id="p4"></div>
+          <div class="progresso-passo" id="p5"></div>
+        </div>
+
+        <div id="aviso" class="aviso aviso-erro" style="display:none;"></div>
+
+        <form id="form-pesquisa">
+
+          <!-- ── BLOCO 1: Conhecimento prévio ── -->
+          <section class="bloco">
+            <h2><span class="num">1</span> Conhecimento prévio</h2>
+
+            <div class="campo">
+              <label>Antes do treinamento, qual era seu nível de familiaridade com IA? <span class="obrigatorio">*</span></label>
+              <div class="escala">
+                <label><input type="radio" name="conhecimento_previo" value="1" required /><span>1</span></label>
+                <label><input type="radio" name="conhecimento_previo" value="2" /><span>2</span></label>
+                <label><input type="radio" name="conhecimento_previo" value="3" /><span>3</span></label>
+                <label><input type="radio" name="conhecimento_previo" value="4" /><span>4</span></label>
+                <label><input type="radio" name="conhecimento_previo" value="5" /><span>5</span></label>
+              </div>
+              <div class="escala-legenda">
+                <span>1 &mdash; Nunca usei</span>
+                <span>5 &mdash; Já usava bem</span>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label>Você já tinha usado alguma IA antes? (marque todas que se aplicam)</label>
+              <div class="opcoes">
+                <label><input type="checkbox" name="ferramentas_anteriores" value="ChatGPT" /> ChatGPT</label>
+                <label><input type="checkbox" name="ferramentas_anteriores" value="Gemini" /> Gemini</label>
+                <label><input type="checkbox" name="ferramentas_anteriores" value="Claude" /> Claude</label>
+                <label><input type="checkbox" name="ferramentas_anteriores" value="Copilot" /> Copilot (Microsoft)</label>
+                <label><input type="checkbox" name="ferramentas_anteriores" value="Nenhuma" /> Nenhuma</label>
+                <label><input type="checkbox" name="ferramentas_anteriores" value="Outra" /> Outra</label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="palavra_antes">Em uma palavra, o que você associava à IA antes do treinamento?</label>
+              <input type="text" id="palavra_antes" name="palavra_antes" maxlength="60" placeholder="Ex.: futuro, medo, tecnologia..." />
+            </div>
+          </section>
+
+          <!-- ── BLOCO 2: Expectativa vs realidade ── -->
+          <section class="bloco">
+            <h2><span class="num">2</span> Expectativa vs realidade</h2>
+
+            <div class="campo">
+              <label for="expectativa_inicial">Qual era sua principal expectativa ao começar o treinamento?</label>
+              <textarea id="expectativa_inicial" name="expectativa_inicial" placeholder="Escreva livremente..."></textarea>
+            </div>
+
+            <div class="campo">
+              <label>O treinamento atendeu sua expectativa? <span class="obrigatorio">*</span></label>
+              <div class="escala">
+                <label><input type="radio" name="atendimento_expectativa" value="1" required /><span>1</span></label>
+                <label><input type="radio" name="atendimento_expectativa" value="2" /><span>2</span></label>
+                <label><input type="radio" name="atendimento_expectativa" value="3" /><span>3</span></label>
+                <label><input type="radio" name="atendimento_expectativa" value="4" /><span>4</span></label>
+                <label><input type="radio" name="atendimento_expectativa" value="5" /><span>5</span></label>
+              </div>
+              <div class="escala-legenda">
+                <span>1 &mdash; Muito abaixo</span>
+                <span>5 &mdash; Superou</span>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="surpresa">O que mais te surpreendeu — positiva ou negativamente?</label>
+              <textarea id="surpresa" name="surpresa"></textarea>
+            </div>
+          </section>
+
+          <!-- ── BLOCO 3: NPS ── -->
+          <section class="bloco">
+            <h2><span class="num">3</span> Recomendação</h2>
+
+            <div class="campo">
+              <label>De 0 a 10, o quanto você recomendaria este treinamento a uma colega? <span class="obrigatorio">*</span></label>
+              <div class="escala">
+                <label><input type="radio" name="nps" value="0" required /><span>0</span></label>
+                <label><input type="radio" name="nps" value="1" /><span>1</span></label>
+                <label><input type="radio" name="nps" value="2" /><span>2</span></label>
+                <label><input type="radio" name="nps" value="3" /><span>3</span></label>
+                <label><input type="radio" name="nps" value="4" /><span>4</span></label>
+                <label><input type="radio" name="nps" value="5" /><span>5</span></label>
+                <label><input type="radio" name="nps" value="6" /><span>6</span></label>
+                <label><input type="radio" name="nps" value="7" /><span>7</span></label>
+                <label><input type="radio" name="nps" value="8" /><span>8</span></label>
+                <label><input type="radio" name="nps" value="9" /><span>9</span></label>
+                <label><input type="radio" name="nps" value="10" /><span>10</span></label>
+              </div>
+              <div class="escala-legenda">
+                <span>0 &mdash; Jamais indicaria</span>
+                <span>10 &mdash; Com certeza</span>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="nps_motivo">Por que escolheu essa nota?</label>
+              <textarea id="nps_motivo" name="nps_motivo"></textarea>
+            </div>
+
+            <div class="campo">
+              <label for="melhorias">O que poderia ter sido melhor no treinamento?</label>
+              <textarea id="melhorias" name="melhorias"></textarea>
+            </div>
+          </section>
+
+          <!-- ── BLOCO 4: Aplicação prática ── -->
+          <section class="bloco">
+            <h2><span class="num">4</span> Aplicação no dia a dia</h2>
+
+            <div class="campo">
+              <label>Quão confiante você se sente para usar IA no trabalho agora? <span class="obrigatorio">*</span></label>
+              <div class="escala">
+                <label><input type="radio" name="confianca_uso" value="1" required /><span>1</span></label>
+                <label><input type="radio" name="confianca_uso" value="2" /><span>2</span></label>
+                <label><input type="radio" name="confianca_uso" value="3" /><span>3</span></label>
+                <label><input type="radio" name="confianca_uso" value="4" /><span>4</span></label>
+                <label><input type="radio" name="confianca_uso" value="5" /><span>5</span></label>
+              </div>
+              <div class="escala-legenda">
+                <span>1 &mdash; Nada confiante</span>
+                <span>5 &mdash; Muito confiante</span>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label>Em qual(is) tarefa(s) do seu trabalho você acha que a IA pode ajudar? (marque todas)</label>
+              <div class="opcoes">
+                <label><input type="checkbox" name="areas_aplicacao" value="Conciliação bancária" /> Conciliação bancária</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="Contas a pagar" /> Contas a pagar</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="Contas a receber" /> Contas a receber</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="Análise de extratos" /> Análise de extratos bancários</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="Cobrança/inadimplência" /> Cobrança e inadimplência</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="Relatórios" /> Relatórios e planilhas</label>
+                <label><input type="checkbox" name="areas_aplicacao" value="E-mails" /> Redação de e-mails</label>
+                <label id="label-area-outra"><input type="checkbox" name="areas_aplicacao" value="Outra" id="cb-area-outra" /> Outra</label>
+              </div>
+            </div>
+
+            <div class="campo" id="campo-area-outra" style="display:none;">
+              <label for="areas_aplicacao_outro">Qual outra área?</label>
+              <input type="text" id="areas_aplicacao_outro" name="areas_aplicacao_outro" />
+            </div>
+
+            <div class="campo">
+              <label>Você pretende experimentar o Claude após o treinamento? <span class="obrigatorio">*</span></label>
+              <div class="opcoes">
+                <label><input type="radio" name="pretende_usar_claude" value="Sim" required /> Sim, quero testar</label>
+                <label><input type="radio" name="pretende_usar_claude" value="Já comecei" /> Já comecei a usar</label>
+                <label><input type="radio" name="pretende_usar_claude" value="Talvez" /> Talvez, ainda em dúvida</label>
+                <label><input type="radio" name="pretende_usar_claude" value="Não" /> Não pretendo por ora</label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label for="primeira_situacao">Em qual situação do trabalho você imagina usar a IA primeiro?</label>
+              <textarea id="primeira_situacao" name="primeira_situacao"></textarea>
+            </div>
+          </section>
+
+          <!-- ── BLOCO 5: Próximos passos ── -->
+          <section class="bloco">
+            <h2><span class="num">5</span> Próximos passos</h2>
+
+            <div class="campo">
+              <label>Gostaria de mais treinamentos sobre IA? <span class="obrigatorio">*</span></label>
+              <div class="opcoes">
+                <label><input type="radio" name="mais_treinamentos" value="Sim" required /> Sim</label>
+                <label><input type="radio" name="mais_treinamentos" value="Talvez" /> Talvez</label>
+                <label><input type="radio" name="mais_treinamentos" value="Não" /> Não</label>
+              </div>
+            </div>
+
+            <div class="campo">
+              <label>Que tipo de conteúdo seria mais útil agora? (marque todas)</label>
+              <div class="opcoes">
+                <label><input type="checkbox" name="tipo_treinamento_desejado" value="Prompts avançados" /> Prompts mais avançados</label>
+                <label><input type="checkbox" name="tipo_treinamento_desejado" value="Automações" /> Automações no dia a dia</label>
+                <label><input type="checkbox" name="tipo_treinamento_desejado" value="IA com Excel" /> IA aplicada ao Excel</label>
+                <label><input type="checkbox" name="tipo_treinamento_desejado" value="IA com e-mail" /> IA aplicada ao Outlook / e-mail</label>
+                <label><input type="checkbox" name="tipo_treinamento_desejado" value="IA com ERP" /> IA conectada ao ERP (Mineriom)</label>
+                <label id="label-tipo-outro"><input type="checkbox" name="tipo_treinamento_desejado" value="Outro" id="cb-tipo-outro" /> Outro</label>
+              </div>
+            </div>
+
+            <div class="campo" id="campo-tipo-outro" style="display:none;">
+              <label for="tipo_treinamento_outro">Qual outro tipo?</label>
+              <input type="text" id="tipo_treinamento_outro" name="tipo_treinamento_outro" />
+            </div>
+
+            <div class="campo">
+              <label for="comentario_livre">Algo mais que queira compartilhar?</label>
+              <textarea id="comentario_livre" name="comentario_livre" placeholder="Críticas, elogios, ideias... fique à vontade."></textarea>
+            </div>
+          </section>
+
+          <button type="submit" id="botao-enviar" class="botao">Enviar respostas &rarr;</button>
+        </form>
+      </div>
+
+      <p class="rodape">Grupo SN &mdash; Departamento Financeiro &mdash; Treinamento Interno</p>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/pesquisa.js"></script>
+</body>
+</html>

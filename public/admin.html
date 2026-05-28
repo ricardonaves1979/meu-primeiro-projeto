@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel Admin - Treinamento IA</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="login-overlay" id="login-overlay">
+    <div class="login-box">
+      <img src="img/logo-grupo-sn.png" alt="Grupo SN" />
+      <h2>Painel de Resultados</h2>
+      <p>Acesso restrito - Treinamento IA</p>
+      <form id="form-login">
+        <div class="campo">
+          <input type="password" id="senha-admin" placeholder="Senha" autocomplete="current-password" />
+        </div>
+        <button type="submit" class="botao" style="width:100%;">Entrar</button>
+        <div id="erro-login" class="aviso aviso-erro" style="display:none; margin-top:12px;">Senha incorreta.</div>
+      </form>
+    </div>
+  </div>
+
+  <div id="painel" style="display:none;">
+    <header class="header">
+      <img src="img/logo-grupo-sn.png" alt="Grupo SN" />
+      <span class="header-titulo">Painel de Resultados - Treinamento de IA</span>
+    </header>
+
+    <div class="pagina">
+      <div class="container-wide">
+
+        <div class="kpis">
+          <div class="kpi">
+            <div class="kpi-label">Respostas</div>
+            <div class="kpi-valor" id="kpi-total">-</div>
+            <div class="kpi-label">de 5</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">NPS</div>
+            <div class="kpi-valor" id="kpi-nps">-</div>
+            <div class="kpi-label" id="kpi-nps-desc">calculando...</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Expectativa atendida</div>
+            <div class="kpi-valor" id="kpi-expectativa">-</div>
+            <div class="kpi-label">media 1-5</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Confianca pos-treino</div>
+            <div class="kpi-valor" id="kpi-confianca">-</div>
+            <div class="kpi-label">media 1-5</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-label">Pretendem usar Claude</div>
+            <div class="kpi-valor" id="kpi-uso">-</div>
+            <div class="kpi-label">respondentes</div>
+          </div>
+        </div>
+
+        <div class="barra-acoes">
+          <button class="botao botao-secundario" onclick="exportarCSV()">Baixar CSV</button>
+          <button class="botao botao-secundario" onclick="location.reload()">Atualizar</button>
+        </div>
+
+        <div class="tabela-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>NPS</th>
+                <th>Conhec. previo</th>
+                <th>Expectativa</th>
+                <th>Confianca</th>
+                <th>Pretende usar</th>
+                <th>+Treinos?</th>
+              </tr>
+            </thead>
+            <tbody id="corpo-tabela">
+              <tr><td colspan="8" class="loading">Carregando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div id="secoes-abertas"></div>
+
+        <p class="rodape">Grupo SN - Painel Interno - Treinamento de IA</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
